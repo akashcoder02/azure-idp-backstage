@@ -206,6 +206,14 @@ catalog:
       rules:
         - allow: [User, Group]
 
+    - type: file
+      target: ../../examples/catalog-info.yaml
+
+    - type: file
+      target: ../../examples/templates/deploy-application/template.yaml
+      rules:
+        - allow: [Template]
+
     ## Uncomment these lines to add more example data
     # - type: url
     #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml

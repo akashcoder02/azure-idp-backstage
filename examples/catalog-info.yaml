@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tetris
+  description: Tetris application deployed through the Azure IDP
+  annotations:
+    github.com/project-slug: akashcoder02/azure-devops-aks-demo
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tic-tac-toe
+  description: Tic-Tac-Toe application deployed through the Azure IDP
+  annotations:
+    github.com/project-slug: akashcoder02/azure-devops-aks-demo
+spec:
+  type: service
+  lifecycle: production
+  owner: platform-team

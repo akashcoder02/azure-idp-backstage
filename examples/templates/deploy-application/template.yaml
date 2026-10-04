@@ -1,0 +1,91 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+
+metadata:
+  name: deploy-application
+  title: Deploy Application
+  description: Deploy an application using the existing Azure IDP release pipeline
+  tags:
+    - azure
+    - aks
+    - gitops
+    - github-actions
+
+spec:
+  owner: platform-team
+  type: service
+
+  parameters:
+
+    - title: Select Application
+      required:
+        - application_name
+      properties:
+        application_name:
+          title: Application
+          type: string
+          enum:
+            - tetris
+            - tic-tac-toe
+
+    - title: Deployment Configuration
+      required:
+        - environment
+        - deployment_strategy
+        - deployment_type
+        - enable_devsecops
+      properties:
+
+        environment:
+          title: Environment
+          type: string
+          enum:
+            - development
+            - production
+          default: development
+
+        deployment_strategy:
+          title: Deployment Strategy
+          type: string
+          enum:
+            - gitops
+            - traditional
+          default: gitops
+
+        deployment_type:
+          title: Deployment Type
+          type: string
+          enum:
+            - default
+            - hpa
+          default: default
+
+        enable_devsecops:
+          title: Enable DevSecOps
+          type: string
+          enum:
+            - "false"
+            - "true"
+          default: "false"
+
+  steps:
+
+    - id: deploy
+      name: Start Application Release
+      action: github:actions:dispatch
+      input:
+        repoUrl: github.com?owner=akashcoder02&repo=azure-devops-aks-demo
+        workflowId: release.yml
+        branchOrTagName: main
+        returnWorkflowRunDetails: true
+        workflowInputs:
+          application_name: ${{ parameters.application_name }}
+          environment: ${{ parameters.environment }}
+          deployment_strategy: ${{ parameters.deployment_strategy }}
+          deployment_type: ${{ parameters.deployment_type }}
+          enable_devsecops: ${{ parameters.enable_devsecops }}
+
+  output:
+    links:
+      - title: GitHub Actions Workflow
+        url: https://github.com/akashcoder02/azure-devops-aks-demo/actions/workflows/release.yml

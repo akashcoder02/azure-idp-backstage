@@ -3,6 +3,9 @@ import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { SignInPageBlueprint } from '@backstage/plugin-app-react';
 import { SignInPage } from '@backstage/core-components';
 import { createFrontendModule } from '@backstage/frontend-plugin-api';
+import argocdPlugin, {
+  argocdTranslationsModule,
+} from '@backstage-community/plugin-argocd';
 
 import catalogPlugin from '@backstage/plugin-catalog/alpha';
 import githubActionsPlugin from '@backstage-community/plugin-github-actions/alpha';
@@ -32,6 +35,8 @@ export default createApp({
     navModule,
     homeModule,
     githubActionsPlugin,
+    argocdPlugin,
+    argocdTranslationsModule,
     createFrontendModule({
       pluginId: 'app',
       extensions: [signInPage],

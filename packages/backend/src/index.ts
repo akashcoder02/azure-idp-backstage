@@ -62,6 +62,9 @@ backend.add(import('@backstage/plugin-search-backend-module-techdocs'));
 // kubernetes plugin
 backend.add(import('@backstage/plugin-kubernetes-backend'));
 
+// argocd plugin
+backend.add(import('@backstage-community/plugin-argocd-backend'));
+
 // user settings plugin
 backend.add(import('@backstage/plugin-user-settings-backend'));
 

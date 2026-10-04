@@ -1,13 +1,14 @@
 ---
-# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
 apiVersion: backstage.io/v1alpha1
 kind: User
 metadata:
-  name: guest
+  name: akashcoder02
+  annotations:
+    github.com/user-id: "126484113"
 spec:
   memberOf: [guests]
+
 ---
-# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:

@@ -8,6 +8,7 @@ metadata:
     github.com/project-slug: akashcoder02/azure-devops-aks-demo
     argocd/app-name: tetris
     argocd/app-namespace: argocd
+    argocd/instance-name: primary
 spec:
   type: service
   lifecycle: production
@@ -23,6 +24,7 @@ metadata:
     github.com/project-slug: akashcoder02/azure-devops-aks-demo
     argocd/app-name: tic-tac-toe
     argocd/app-namespace: argocd
+    argocd/instance-name: primary
 spec:
   type: service
   lifecycle: production

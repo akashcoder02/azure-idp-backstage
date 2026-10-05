@@ -6,6 +6,7 @@ import { createFrontendModule } from '@backstage/frontend-plugin-api';
 import argocdPlugin, {
   argocdTranslationsModule,
 } from '@backstage-community/plugin-argocd';
+import cicdModule from './modules/cicd';
 
 import catalogPlugin from '@backstage/plugin-catalog/alpha';
 import githubActionsPlugin from '@backstage-community/plugin-github-actions/alpha';
@@ -35,6 +36,7 @@ export default createApp({
     navModule,
     homeModule,
     githubActionsPlugin,
+    cicdModule,
     argocdPlugin,
     argocdTranslationsModule,
     createFrontendModule({
